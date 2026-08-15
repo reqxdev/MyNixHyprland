@@ -43,7 +43,7 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd "firefox")
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd "kitty")
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd "vesktop")
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd "prismlauncher")
-
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd "obs")
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_SIZE", "24")
@@ -398,7 +398,82 @@ end
         place(mc[6], 480,  1635, 480, 525)
         place(mc[7], 960,  1635, 480, 525)
         place(mc[8], 1440, 1635, 480, 525)
-    end
+
+    -- 9 MCs
+    elseif count == 9 then
+
+        place(mc[1], 0,    1110, 640, 350)
+        place(mc[2], 640,  1110, 640, 350)
+        place(mc[3], 1280, 1110, 640, 350)
+
+        place(mc[4], 0,    1460, 640, 350)
+        place(mc[5], 640,  1460, 640, 350)
+        place(mc[6], 1280, 1460, 640, 350)
+
+        place(mc[7], 0,    1810, 640, 350)
+        place(mc[8], 640,  1810, 640, 350)
+        place(mc[9], 1280, 1810, 640, 350)
+
+    -- 10 MCs
+    elseif count == 10 then
+
+        -- Top row
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
+
+        -- Middle row
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
+
+        -- Bottom row
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
+
+    -- 11 MCs
+    elseif count == 11 then
+
+        -- Top row
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
+
+        -- Middle row
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
+
+        -- Bottom row
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
+        place(mc[11], 960,  1810, 480, 350)
+
+    -- 12 MCs
+    elseif count == 12 then
+
+        -- Top row
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
+
+        -- Middle row
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
+
+        -- Bottom row
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
+        place(mc[11], 960,  1810, 480, 350)
+        place(mc[12], 1440, 1810, 480, 350)
+   end
 end   
 
 hl.on("window.open", function(w)
@@ -409,7 +484,6 @@ hl.on("window.open", function(w)
             timeout = 2000,
         })
 
-        -- Take MC out of Hyprland's tiling layout
         hl.dispatch(
             hl.dsp.window.float({
                 action = "set",
