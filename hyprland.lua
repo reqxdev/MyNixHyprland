@@ -21,12 +21,7 @@ hl.monitor({
 	transform = 2,
 })
 
-
----------------------
----- MY PROGRAMS ----
----------------------
-
--- Set programs that you use
+local mainMod 	  = "SUPER" 
 local terminal    = "kitty"
 local fileManager = "yazi"
 local menu        = "rofi"
@@ -39,9 +34,15 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprpaper")
 end)
 
--------------------------------
----- ENVIRONMENT VARIABLES ----
--------------------------------
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + K", hl.dsp.window.close())
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("kitty -e yazi"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd "firefox")
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd "kitty")
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd "vesktop")
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd "prismlauncher")
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
@@ -58,7 +59,7 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = "#ffffffff",
+            active_border   = "#3293d4",
             inactive_border = "#ffffff00",
         },
 
@@ -76,8 +77,8 @@ hl.config({
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        active_opacity   = 0.95,
+        inactive_opacity = 0.8,
 
         shadow = {
             enabled      = true,
@@ -127,28 +128,10 @@ hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
-        preserve_split = true, -- You probably want this
+        preserve_split = true, 
     },
 })
 
@@ -213,23 +196,6 @@ hl.device({
     sensitivity = -0.5,
 })
 
-
----------------------
----- KEYBINDINGS ----
----------------------
-
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd "firefox")
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd "kitty")
-
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -244,8 +210,7 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+-- Example special workspace (scratchpad)hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -312,6 +277,151 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
+-- TEST MC RULES
+
+local function is_minecraft(w)
+    return w
+        and w.class
+        and w.class:match("^Minecraft")
+end
+
+local function get_minecraft_windows()
+    local windows = {}
+
+    for _, w in ipairs(hl.get_windows()) do
+        if is_minecraft(w) then
+            table.insert(windows, w)
+        end
+    end
+
+    return windows
+end
+
+local function arrange_minecraft()
+    local mc = get_minecraft_windows()
+    local count = #mc
+
+    if count == 0 then
+        return
+    end
+
+    local X = 0
+    local Y = 1110
+    local W = 1920
+    local H = 1050
+
+local function place(w, x, y, width, height)
+
+    hl.dispatch(
+        hl.dsp.window.resize({
+            x = width,
+            y = height,
+            relative = false,
+            window = w,
+        })
+    )
+
+    hl.dispatch(
+        hl.dsp.window.move({
+            x = x,
+            y = y,
+            relative = false,
+            window = w,
+        })
+    )
+end
+
+    -- 1 MC
+    if count == 1 then
+
+        place(mc[1], 0, 1110, 1920, 1050)
+
+    -- 2 MCs
+    elseif count == 2 then
+
+        place(mc[1], 0,    1110, 960, 1050)
+        place(mc[2], 960,  1110, 960, 1050)
+
+    -- 3 MCs
+    elseif count == 3 then
+
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 960, 1050)
+        place(mc[3], 0,    1635, 960, 525)
+
+    -- 4 MCs
+    elseif count == 4 then
+
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 960, 525)
+        place(mc[3], 0,    1635, 960, 525)
+        place(mc[4], 960,  1635, 960, 525)
+
+    -- 5 MCs
+    elseif count == 5 then
+
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 960, 525)
+        place(mc[3], 0,    1635, 960, 525)
+        place(mc[4], 960,  1635, 480, 525)
+        place(mc[5], 1440, 1635, 480, 525)
+
+    -- 6 MCs
+    elseif count == 6 then
+
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 480, 525)
+        place(mc[3], 1440, 1110, 480, 525)
+        place(mc[4], 0,    1635, 960, 525)
+        place(mc[5], 960,  1635, 480, 525)
+        place(mc[6], 1440, 1635, 480, 525)
+
+    -- 7 MCs
+    elseif count == 7 then
+
+        place(mc[1], 0,    1110, 480, 525)
+        place(mc[2], 480,  1110, 480, 525)
+        place(mc[3], 960,  1110, 480, 525)
+        place(mc[4], 1440, 1110, 480, 525)
+        place(mc[5], 0,    1635, 960, 525)
+        place(mc[6], 960,  1635, 480, 525)
+        place(mc[7], 1440, 1635, 480, 525)
+
+    -- 8 MCs
+    elseif count == 8 then
+
+        place(mc[1], 0,    1110, 480, 525)
+        place(mc[2], 480,  1110, 480, 525)
+        place(mc[3], 960,  1110, 480, 525)
+        place(mc[4], 1440, 1110, 480, 525)
+        place(mc[5], 0,    1635, 480, 525)
+        place(mc[6], 480,  1635, 480, 525)
+        place(mc[7], 960,  1635, 480, 525)
+        place(mc[8], 1440, 1635, 480, 525)
+    end
+end   
+
+hl.on("window.open", function(w)
+    if is_minecraft(w) then
+
+        hl.notification.create({
+            text = "MC detected: " .. tostring(w.class),
+            timeout = 2000,
+        })
+
+        -- Take MC out of Hyprland's tiling layout
+        hl.dispatch(
+            hl.dsp.window.float({
+                action = "set",
+                window = w,
+            })
+        )
+
+        arrange_minecraft()
+    end
+end)
+
+
 -- Hyprland-run windowrule
 hl.window_rule({
     name  = "move-hyprland-run",
@@ -320,3 +430,5 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+
