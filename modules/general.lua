@@ -21,11 +21,11 @@ function M.setup(hl)
         },
 
         decoration = {
-            rounding = 10,
-            rounding_power = 2,
+            rounding = 0,
+            rounding_power = 0,
 
             active_opacity = 0.95,
-            inactive_opacity = 0.8,
+            inactive_opacity = 0.9,
 
             shadow = {
                 enabled = true,
@@ -37,7 +37,7 @@ function M.setup(hl)
             blur = {
                 enabled = true,
                 size = 3,
-                passes = 1,
+                passes = 3,
                 vibrancy = 0.1696,
             },
         },
