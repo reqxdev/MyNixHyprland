@@ -28,7 +28,7 @@ function M.setup(hl)
         layout = "dwindle",
     })
 
-    -- Optional default workspace for vertical DP-3
+     -- Optional default workspace for vertical DP-3
     hl.workspace_rule({
         workspace = "3",
         monitor = "DP-3",

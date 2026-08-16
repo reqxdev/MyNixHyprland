@@ -2,16 +2,16 @@ local M = {}
 
 function M.setup(hl)
 
-    local variables = require("modules.variables")
+	local variables = require("modules.variables")
 
-    local mainMod = variables.mainMod
-    local terminal = variables.terminal
-    local fileManager = variables.fileManager
-    local menu = variables.menu
-
-    -- ───────────── Applications ─────────────
-    hl.bind(
-        mainMod .. " + CTRL + K",
+	local mainMod = variables.mainMod
+	local terminal = variables.terminal
+	local fileManager = variables.fileManager
+	local menu = variables.menu
+	local browser = variables.browser
+  
+  hl.bind(
+        mainMod .. " + L",
         hl.dsp.exec_cmd(
         "wlogout --protocol layer-shell --buttons-per-row 4 " ..
         "--column-spacing 32 --margin-top 420 --margin-bottom 420 " ..
@@ -19,7 +19,6 @@ function M.setup(hl)
         "--no-span --primary-monitor 0"
         )
     )    
-
 
     hl.bind(
         mainMod .. " + K",
@@ -38,12 +37,7 @@ function M.setup(hl)
 
     hl.bind(
         mainMod .. " + B",
-        hl.dsp.exec_cmd("firefox")
-    )
-
-    hl.bind(
-        mainMod .. " + L",
-        hl.dsp.exec_cmd("hyprlock")
+        hl.dsp.exec_cmd(browser)
     )
 
     hl.bind(
