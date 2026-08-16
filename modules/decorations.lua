@@ -4,8 +4,8 @@ function M.setup(hl)
 
     hl.config({
         general = {
-            gaps_in = 5,
-            gaps_out = 5,
+            gaps_in = 2,
+            gaps_out = 2,
 
             border_size = 2,
 
@@ -16,8 +16,6 @@ function M.setup(hl)
 
             resize_on_border = false,
             allow_tearing = false,
-
-            layout = "dwindle",
         },
 
         decoration = {
@@ -40,28 +38,6 @@ function M.setup(hl)
                 passes = 3,
                 vibrancy = 0.1696,
             },
-        },
-
-        animations = {
-            enabled = true,
-        },
-    })
-
-    hl.config({
-        dwindle = {
-            preserve_split = true,
-        },
-    })
-
-    hl.config({
-        master = {
-            new_status = "master",
-        },
-    })
-
-    hl.config({
-        scrolling = {
-            fullscreen_on_one_column = true,
         },
     })
 

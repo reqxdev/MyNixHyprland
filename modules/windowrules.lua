@@ -13,7 +13,7 @@ function M.setup(hl)
         suppress_event = "maximize",
     })
 
-    -- Uncomment if you ever want to disable this rule:
+    -- Uncomment to disable this rule:
     -- suppressMaximizeRule:set_enabled(false)
 
 
@@ -44,6 +44,21 @@ function M.setup(hl)
 
         move  = "20 monitor_h-120",
         float = true,
+    })
+
+
+    -- Minecraft appearance only.
+    -- Positioning and tiling are handled by minecraft.lua.
+    hl.window_rule({
+        name = "minecraft-grid-style",
+
+        match = {
+            class = "^Minecraft",
+        },
+
+        no_blur = true,
+        no_anim = true,
+        opacity = "1.0 override",
     })
 
 end
