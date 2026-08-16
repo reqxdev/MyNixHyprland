@@ -26,6 +26,13 @@ function M.setup(hl)
     )
 
     hl.bind(
+	mainMod .. " +  ALT + T",
+	hl.dsp.exec_cmd(
+	    terminal .. " --class clock-ros --title Clock -e clock-rs"
+	)
+    )
+
+    hl.bind(
         mainMod .. " + F",
         hl.dsp.exec_cmd(terminal .. " -e " .. fileManager)
     )
