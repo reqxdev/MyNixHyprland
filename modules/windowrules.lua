@@ -61,6 +61,16 @@ function M.setup(hl)
         opacity = "1.0 override",
     })
 
+    -- Wlogout glass background
+    hl.layer_rule({
+        name = "wlogout-glass",
+        match = {
+            namespace = "logout_dialog",
+        },
+        blur = true,
+        ignore_alpha = 0.10,
+})
+
 end
 
 return M

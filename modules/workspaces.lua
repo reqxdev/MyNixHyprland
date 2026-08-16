@@ -5,14 +5,14 @@ function M.setup(hl)
     -- Dedicated Minecraft workspace
     hl.workspace_rule({
         workspace = "1",
-        monitor = "DP-1",
+        monitor = "DP-2",
         default = true,
         persistent = true,
 
         layout = "lua:mc-grid",
 
-        gaps_in = 4,
-        gaps_out = 0,
+        gaps_in = 0,
+        gaps_out = 1,
 
         no_border = true,
         no_shadow = true,

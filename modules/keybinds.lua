@@ -10,13 +10,16 @@ function M.setup(hl)
     local menu = variables.menu
 
     -- ───────────── Applications ─────────────
-
     hl.bind(
         mainMod .. " + CTRL + K",
         hl.dsp.exec_cmd(
-            "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+        "wlogout --protocol layer-shell --buttons-per-row 4 " ..
+        "--column-spacing 32 --margin-top 420 --margin-bottom 420 " ..
+        "--margin-left 512 --margin-right 512 " ..
+        "--no-span --primary-monitor 0"
         )
-    )
+    )    
+
 
     hl.bind(
         mainMod .. " + K",
@@ -36,6 +39,11 @@ function M.setup(hl)
     hl.bind(
         mainMod .. " + B",
         hl.dsp.exec_cmd("firefox")
+    )
+
+    hl.bind(
+        mainMod .. " + L",
+        hl.dsp.exec_cmd("hyprlock")
     )
 
     hl.bind(
