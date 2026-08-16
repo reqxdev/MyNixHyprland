@@ -34,11 +34,6 @@ function M.setup(hl)
     )
 
     hl.bind(
-        mainMod .. " + J",
-        hl.dsp.layout("togglesplit")
-    )
-
-    hl.bind(
         mainMod .. " + B",
         hl.dsp.exec_cmd("firefox")
     )
@@ -63,26 +58,30 @@ function M.setup(hl)
         hl.dsp.exec_cmd("obs")
     )
 
+    hl.bind(
+    "PRINT",
+    hl.dsp.exec_cmd("hyprshot -m region")
+    ) 
 
     -- ───────────── Focus ─────────────
 
     hl.bind(
-        mainMod .. " + left",
+        mainMod .. " + A",
         hl.dsp.focus({ direction = "left" })
     )
 
     hl.bind(
-        mainMod .. " + right",
+        mainMod .. " + D",
         hl.dsp.focus({ direction = "right" })
     )
 
     hl.bind(
-        mainMod .. " + up",
+        mainMod .. " + W",
         hl.dsp.focus({ direction = "up" })
     )
 
     hl.bind(
-        mainMod .. " + down",
+        mainMod .. " + S",
         hl.dsp.focus({ direction = "down" })
     )
 
