@@ -71,6 +71,15 @@ function M.setup(hl)
         ignore_alpha = 0.10,
 })
 
+    hl.layer_rule({
+    name = "rofi-glass",
+    match = {
+        namespace = "rofi",
+    },
+    blur = true,
+    ignore_alpha = 0.10,
+})
+
 end
 
 return M
