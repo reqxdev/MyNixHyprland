@@ -54,155 +54,235 @@ function M.setup(hl)
             )
         end
 
-        -- 1 MC
-        if count == 1 then
+    -- 1 MC
+    if count == 1 then
 
-            place(mc[1], 0, 1110, 1920, 1050)
+        place(mc[1], 0, 1110, 1920, 1050)
 
-        -- 2 MCs
-        elseif count == 2 then
+    -- 2 MCs
+    elseif count == 2 then
 
-            place(mc[1], 0,   1110, 960, 1050)
-            place(mc[2], 960, 1110, 960, 1050)
+        place(mc[1], 0,    1110, 960, 1050)
+        place(mc[2], 960,  1110, 960, 1050)
 
-        -- 3 MCs
-        elseif count == 3 then
+    -- 3 MCs
+    elseif count == 3 then
 
-            place(mc[1], 0,   1110, 960, 525)
-            place(mc[2], 960, 1110, 960, 1050)
-            place(mc[3], 0,   1635, 960, 525)
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 960, 525)
+        place(mc[3], 0,    1635, 960, 525)
 
-        -- 4 MCs
-        elseif count == 4 then
+    -- 4 MCs
+    elseif count == 4 then
 
-            place(mc[1], 0,   1110, 960, 525)
-            place(mc[2], 960, 1110, 960, 525)
-            place(mc[3], 0,   1635, 960, 525)
-            place(mc[4], 960, 1635, 960, 525)
+        place(mc[1], 0,    1110, 960, 525)
+        place(mc[2], 960,  1110, 960, 525)
+        place(mc[3], 0,    1635, 960, 525)
+        place(mc[4], 960,  1635, 960, 525)
 
-        -- 5 MCs
-        elseif count == 5 then
+    -- 5 MCs
+    elseif count == 5 then
 
-            place(mc[1], 0,    1110, 960, 525)
-            place(mc[2], 960,  1110, 960, 525)
-            place(mc[3], 0,    1635, 960, 525)
-            place(mc[4], 960,  1635, 480, 525)
-            place(mc[5], 1440, 1635, 480, 525)
+        place(mc[1], 0,    1110, 640, 525)
+        place(mc[2], 640,  1110, 640, 525)
+        place(mc[3], 1280, 1110, 640, 525)
+        place(mc[4], 0,    1635, 640, 525)
+        place(mc[5], 640,  1635, 640, 525)
 
-        -- 6 MCs
-        elseif count == 6 then
+    -- 6 MCs
+    elseif count == 6 then
 
-            place(mc[1], 0,    1110, 960, 525)
-            place(mc[2], 960,  1110, 480, 525)
-            place(mc[3], 1440, 1110, 480, 525)
-            place(mc[4], 0,    1635, 960, 525)
-            place(mc[5], 960,  1635, 480, 525)
-            place(mc[6], 1440, 1635, 480, 525)
+        place(mc[1], 0,    1110, 640, 525)
+        place(mc[2], 640,  1110, 640, 525)
+        place(mc[3], 1280, 1110, 640, 525)
+        place(mc[4], 0,    1635, 640, 525)
+        place(mc[5], 640,  1635, 640, 525)
+        place(mc[6], 1280, 1635, 640, 525)
 
-        -- 7 MCs
-        elseif count == 7 then
+    -- 7 MCs
+    elseif count == 7 then
 
-            place(mc[1], 0,    1110, 480, 525)
-            place(mc[2], 480,  1110, 480, 525)
-            place(mc[3], 960,  1110, 480, 525)
-            place(mc[4], 1440, 1110, 480, 525)
-            place(mc[5], 0,    1635, 960, 525)
-            place(mc[6], 960,  1635, 480, 525)
-            place(mc[7], 1440, 1635, 480, 525)
+        place(mc[1], 0,    1110, 640, 350)
+        place(mc[2], 640,  1110, 640, 350)
+        place(mc[3], 1280, 1110, 640, 350)
 
-        -- 8 MCs
-        elseif count == 8 then
+        place(mc[4], 0,    1460, 640, 350)
+        place(mc[5], 640,  1460, 640, 350)
+        place(mc[6], 1280, 1460, 640, 350)
 
-            place(mc[1], 0,    1110, 480, 525)
-            place(mc[2], 480,  1110, 480, 525)
-            place(mc[3], 960,  1110, 480, 525)
-            place(mc[4], 1440, 1110, 480, 525)
-            place(mc[5], 0,    1635, 480, 525)
-            place(mc[6], 480,  1635, 480, 525)
-            place(mc[7], 960,  1635, 480, 525)
-            place(mc[8], 1440, 1635, 480, 525)
+        place(mc[7], 0,    1810, 640, 350)
 
-        -- 9 MCs
-        elseif count == 9 then
+    -- 8 MCs
+    elseif count == 8 then
 
-            place(mc[1], 0,    1110, 640, 350)
-            place(mc[2], 640,  1110, 640, 350)
-            place(mc[3], 1280, 1110, 640, 350)
+        place(mc[1], 0,    1110, 640, 350)
+        place(mc[2], 640,  1110, 640, 350)
+        place(mc[3], 1280, 1110, 640, 350)
 
-            place(mc[4], 0,    1460, 640, 350)
-            place(mc[5], 640,  1460, 640, 350)
-            place(mc[6], 1280, 1460, 640, 350)
+        place(mc[4], 0,    1460, 640, 350)
+        place(mc[5], 640,  1460, 640, 350)
+        place(mc[6], 1280, 1460, 640, 350)
 
-            place(mc[7], 0,    1810, 640, 350)
-            place(mc[8], 640,  1810, 640, 350)
-            place(mc[9], 1280, 1810, 640, 350)
+        place(mc[7], 0,    1810, 640, 350)
+        place(mc[8], 640,  1810, 640, 350)
 
-        -- 10 MCs
-        elseif count == 10 then
+    -- 9 MCs
+    elseif count == 9 then
 
-            -- Top row
-            place(mc[1],  0,    1110, 480, 350)
-            place(mc[2],  480,  1110, 480, 350)
-            place(mc[3],  960,  1110, 480, 350)
-            place(mc[4],  1440, 1110, 480, 350)
+        place(mc[1], 0,    1110, 640, 350)
+        place(mc[2], 640,  1110, 640, 350)
+        place(mc[3], 1280, 1110, 640, 350)
 
-            -- Middle row
-            place(mc[5],  0,    1460, 480, 350)
-            place(mc[6],  480,  1460, 480, 350)
-            place(mc[7],  960,  1460, 480, 350)
-            place(mc[8],  1440, 1460, 480, 350)
+        place(mc[4], 0,    1460, 640, 350)
+        place(mc[5], 640,  1460, 640, 350)
+        place(mc[6], 1280, 1460, 640, 350)
 
-            -- Bottom row
-            place(mc[9],  0,   1810, 480, 350)
-            place(mc[10], 480, 1810, 480, 350)
+        place(mc[7], 0,    1810, 640, 350)
+        place(mc[8], 640,  1810, 640, 350)
+        place(mc[9], 1280, 1810, 640, 350)
 
-        -- 11 MCs
-        elseif count == 11 then
+    -- 10 MCs
+    elseif count == 10 then
 
-            -- Top row
-            place(mc[1], 0,    1110, 480, 350)
-            place(mc[2], 480,  1110, 480, 350)
-            place(mc[3], 960,  1110, 480, 350)
-            place(mc[4], 1440, 1110, 480, 350)
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
 
-            -- Middle row
-            place(mc[5], 0,    1460, 480, 350)
-            place(mc[6], 480,  1460, 480, 350)
-            place(mc[7], 960,  1460, 480, 350)
-            place(mc[8], 1440, 1460, 480, 350)
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
 
-            -- Bottom row
-            place(mc[9],  0,   1810, 480, 350)
-            place(mc[10], 480, 1810, 480, 350)
-            place(mc[11], 960, 1810, 480, 350)
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
 
-        -- 12 MCs
-        elseif count == 12 then
+    -- 11 MCs
+    elseif count == 11 then
 
-            -- Top row
-            place(mc[1], 0,    1110, 480, 350)
-            place(mc[2], 480,  1110, 480, 350)
-            place(mc[3], 960,  1110, 480, 350)
-            place(mc[4], 1440, 1110, 480, 350)
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
 
-            -- Middle row
-            place(mc[5], 0,    1460, 480, 350)
-            place(mc[6], 480,  1460, 480, 350)
-            place(mc[7], 960,  1460, 480, 350)
-            place(mc[8], 1440, 1460, 480, 350)
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
 
-            -- Bottom row
-            place(mc[9],  0,    1810, 480, 350)
-            place(mc[10], 480,  1810, 480, 350)
-            place(mc[11], 960,  1810, 480, 350)
-            place(mc[12], 1440, 1810, 480, 350)
-        end
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
+        place(mc[11], 960,  1810, 480, 350)
+
+    -- 12 MCs
+    elseif count == 12 then
+
+        place(mc[1],  0,    1110, 480, 350)
+        place(mc[2],  480,  1110, 480, 350)
+        place(mc[3],  960,  1110, 480, 350)
+        place(mc[4],  1440, 1110, 480, 350)
+
+        place(mc[5],  0,    1460, 480, 350)
+        place(mc[6],  480,  1460, 480, 350)
+        place(mc[7],  960,  1460, 480, 350)
+        place(mc[8],  1440, 1460, 480, 350)
+
+        place(mc[9],  0,    1810, 480, 350)
+        place(mc[10], 480,  1810, 480, 350)
+        place(mc[11], 960,  1810, 480, 350)
+        place(mc[12], 1440, 1810, 480, 350)
+
+    -- 13 MCs
+    elseif count == 13 then
+
+        place(mc[1],  0,    1110, 480, 263)
+        place(mc[2],  480,  1110, 480, 263)
+        place(mc[3],  960,  1110, 480, 263)
+        place(mc[4],  1440, 1110, 480, 263)
+
+        place(mc[5],  0,    1373, 480, 262)
+        place(mc[6],  480,  1373, 480, 262)
+        place(mc[7],  960,  1373, 480, 262)
+        place(mc[8],  1440, 1373, 480, 262)
+
+        place(mc[9],  0,    1635, 480, 263)
+        place(mc[10], 480,  1635, 480, 263)
+        place(mc[11], 960,  1635, 480, 263)
+        place(mc[12], 1440, 1635, 480, 263)
+
+        place(mc[13], 0,    1898, 480, 262)
+
+    -- 14 MCs
+    elseif count == 14 then
+
+        place(mc[1],  0,    1110, 480, 263)
+        place(mc[2],  480,  1110, 480, 263)
+        place(mc[3],  960,  1110, 480, 263)
+        place(mc[4],  1440, 1110, 480, 263)
+
+        place(mc[5],  0,    1373, 480, 262)
+        place(mc[6],  480,  1373, 480, 262)
+        place(mc[7],  960,  1373, 480, 262)
+        place(mc[8],  1440, 1373, 480, 262)
+
+        place(mc[9],  0,    1635, 480, 263)
+        place(mc[10], 480,  1635, 480, 263)
+        place(mc[11], 960,  1635, 480, 263)
+        place(mc[12], 1440, 1635, 480, 263)
+
+        place(mc[13], 0,    1898, 480, 262)
+        place(mc[14], 480,  1898, 480, 262)
+
+    -- 15 MCs
+    elseif count == 15 then
+
+        place(mc[1],  0,    1110, 480, 263)
+        place(mc[2],  480,  1110, 480, 263)
+        place(mc[3],  960,  1110, 480, 263)
+        place(mc[4],  1440, 1110, 480, 263)
+
+        place(mc[5],  0,    1373, 480, 262)
+        place(mc[6],  480,  1373, 480, 262)
+        place(mc[7],  960,  1373, 480, 262)
+        place(mc[8],  1440, 1373, 480, 262)
+
+        place(mc[9],  0,    1635, 480, 263)
+        place(mc[10], 480,  1635, 480, 263)
+        place(mc[11], 960,  1635, 480, 263)
+        place(mc[12], 1440, 1635, 480, 263)
+
+        place(mc[13], 0,    1898, 480, 262)
+        place(mc[14], 480,  1898, 480, 262)
+        place(mc[15], 960,  1898, 480, 262)
+
+    -- 16 MCs
+    elseif count == 16 then
+
+        place(mc[1],  0,    1110, 480, 263)
+        place(mc[2],  480,  1110, 480, 263)
+        place(mc[3],  960,  1110, 480, 263)
+        place(mc[4],  1440, 1110, 480, 263)
+
+        place(mc[5],  0,    1373, 480, 262)
+        place(mc[6],  480,  1373, 480, 262)
+        place(mc[7],  960,  1373, 480, 262)
+        place(mc[8],  1440, 1373, 480, 262)
+
+        place(mc[9],  0,    1635, 480, 263)
+        place(mc[10], 480,  1635, 480, 263)
+        place(mc[11], 960,  1635, 480, 263)
+        place(mc[12], 1440, 1635, 480, 263)
+
+        place(mc[13], 0,    1898, 480, 262)
+        place(mc[14], 480,  1898, 480, 262)
+        place(mc[15], 960,  1898, 480, 262)
+        place(mc[16], 1440, 1898, 480, 262)
     end
+end
 
     hl.on("window.open", function(w)
         if is_minecraft(w) then
 
-            -- Remember whatever was focused before Minecraft opened
             local previous = hl.get_active_window()
 
             hl.notification.create({
@@ -219,7 +299,6 @@ function M.setup(hl)
 
             arrange_minecraft()
 
-            -- Give focus back to the window that was focused before MC opened
             if previous and previous ~= w then
                 hl.dispatch(
                     hl.dsp.window.focus({
@@ -229,6 +308,12 @@ function M.setup(hl)
             end
         end
     end)
+
+hl.on("window.destroy", function(w)
+    if is_minecraft(w) then
+        arrange_minecraft()
+    end
+end)
 
 end
 
