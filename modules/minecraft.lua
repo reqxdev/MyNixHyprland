@@ -20,6 +20,42 @@ function M.setup(hl)
         return windows
     end
 
+    local function get_grid(count)
+
+        if count == 1 then
+            return 1, 1
+
+        elseif count == 2 then
+            return 2, 1
+
+        elseif count <= 4 then
+            return 2, 2
+
+        elseif count <= 6 then
+            return 3, 2
+
+        elseif count <= 8 then
+            return 4, 2
+
+        elseif count == 9 then
+            return 3, 3
+
+        elseif count <= 12 then
+            return 4, 3
+
+        elseif count <= 16 then
+            return 4, 4
+
+        elseif count <= 20 then
+            return 5, 4
+
+        elseif count <= 25 then
+            return 5, 5
+        end
+
+        return nil, nil
+    end
+
     local function arrange_minecraft()
         local mc = get_minecraft_windows()
         local count = #mc
@@ -32,6 +68,12 @@ function M.setup(hl)
         local Y = 1110
         local W = 1920
         local H = 1050
+
+        local columns, rows = get_grid(count)
+
+        if not columns or not rows then
+            return
+        end
 
         local function place(w, x, y, width, height)
 
@@ -54,231 +96,30 @@ function M.setup(hl)
             )
         end
 
-    -- 1 MC
-    if count == 1 then
+        for i, w in ipairs(mc) do
+            local index = i - 1
 
-        place(mc[1], 0, 1110, 1920, 1050)
+            local column = index % columns
+            local row = math.floor(index / columns)
 
-    -- 2 MCs
-    elseif count == 2 then
+            local x1 = X + math.floor(column * W / columns)
+            local x2 = X + math.floor((column + 1) * W / columns)
 
-        place(mc[1], 0,    1110, 960, 1050)
-        place(mc[2], 960,  1110, 960, 1050)
+            local y1 = Y + math.floor(row * H / rows)
+            local y2 = Y + math.floor((row + 1) * H / rows)
 
-    -- 3 MCs
-    elseif count == 3 then
+            local width = x2 - x1
+            local height = y2 - y1
 
-        place(mc[1], 0,    1110, 960, 525)
-        place(mc[2], 960,  1110, 960, 525)
-        place(mc[3], 0,    1635, 960, 525)
-
-    -- 4 MCs
-    elseif count == 4 then
-
-        place(mc[1], 0,    1110, 960, 525)
-        place(mc[2], 960,  1110, 960, 525)
-        place(mc[3], 0,    1635, 960, 525)
-        place(mc[4], 960,  1635, 960, 525)
-
-    -- 5 MCs
-    elseif count == 5 then
-
-        place(mc[1], 0,    1110, 640, 525)
-        place(mc[2], 640,  1110, 640, 525)
-        place(mc[3], 1280, 1110, 640, 525)
-        place(mc[4], 0,    1635, 640, 525)
-        place(mc[5], 640,  1635, 640, 525)
-
-    -- 6 MCs
-    elseif count == 6 then
-
-        place(mc[1], 0,    1110, 640, 525)
-        place(mc[2], 640,  1110, 640, 525)
-        place(mc[3], 1280, 1110, 640, 525)
-        place(mc[4], 0,    1635, 640, 525)
-        place(mc[5], 640,  1635, 640, 525)
-        place(mc[6], 1280, 1635, 640, 525)
-
-    -- 7 MCs
-    elseif count == 7 then
-
-        place(mc[1], 0,    1110, 640, 350)
-        place(mc[2], 640,  1110, 640, 350)
-        place(mc[3], 1280, 1110, 640, 350)
-
-        place(mc[4], 0,    1460, 640, 350)
-        place(mc[5], 640,  1460, 640, 350)
-        place(mc[6], 1280, 1460, 640, 350)
-
-        place(mc[7], 0,    1810, 640, 350)
-
-    -- 8 MCs
-    elseif count == 8 then
-
-        place(mc[1], 0,    1110, 640, 350)
-        place(mc[2], 640,  1110, 640, 350)
-        place(mc[3], 1280, 1110, 640, 350)
-
-        place(mc[4], 0,    1460, 640, 350)
-        place(mc[5], 640,  1460, 640, 350)
-        place(mc[6], 1280, 1460, 640, 350)
-
-        place(mc[7], 0,    1810, 640, 350)
-        place(mc[8], 640,  1810, 640, 350)
-
-    -- 9 MCs
-    elseif count == 9 then
-
-        place(mc[1], 0,    1110, 640, 350)
-        place(mc[2], 640,  1110, 640, 350)
-        place(mc[3], 1280, 1110, 640, 350)
-
-        place(mc[4], 0,    1460, 640, 350)
-        place(mc[5], 640,  1460, 640, 350)
-        place(mc[6], 1280, 1460, 640, 350)
-
-        place(mc[7], 0,    1810, 640, 350)
-        place(mc[8], 640,  1810, 640, 350)
-        place(mc[9], 1280, 1810, 640, 350)
-
-    -- 10 MCs
-    elseif count == 10 then
-
-        place(mc[1],  0,    1110, 480, 350)
-        place(mc[2],  480,  1110, 480, 350)
-        place(mc[3],  960,  1110, 480, 350)
-        place(mc[4],  1440, 1110, 480, 350)
-
-        place(mc[5],  0,    1460, 480, 350)
-        place(mc[6],  480,  1460, 480, 350)
-        place(mc[7],  960,  1460, 480, 350)
-        place(mc[8],  1440, 1460, 480, 350)
-
-        place(mc[9],  0,    1810, 480, 350)
-        place(mc[10], 480,  1810, 480, 350)
-
-    -- 11 MCs
-    elseif count == 11 then
-
-        place(mc[1],  0,    1110, 480, 350)
-        place(mc[2],  480,  1110, 480, 350)
-        place(mc[3],  960,  1110, 480, 350)
-        place(mc[4],  1440, 1110, 480, 350)
-
-        place(mc[5],  0,    1460, 480, 350)
-        place(mc[6],  480,  1460, 480, 350)
-        place(mc[7],  960,  1460, 480, 350)
-        place(mc[8],  1440, 1460, 480, 350)
-
-        place(mc[9],  0,    1810, 480, 350)
-        place(mc[10], 480,  1810, 480, 350)
-        place(mc[11], 960,  1810, 480, 350)
-
-    -- 12 MCs
-    elseif count == 12 then
-
-        place(mc[1],  0,    1110, 480, 350)
-        place(mc[2],  480,  1110, 480, 350)
-        place(mc[3],  960,  1110, 480, 350)
-        place(mc[4],  1440, 1110, 480, 350)
-
-        place(mc[5],  0,    1460, 480, 350)
-        place(mc[6],  480,  1460, 480, 350)
-        place(mc[7],  960,  1460, 480, 350)
-        place(mc[8],  1440, 1460, 480, 350)
-
-        place(mc[9],  0,    1810, 480, 350)
-        place(mc[10], 480,  1810, 480, 350)
-        place(mc[11], 960,  1810, 480, 350)
-        place(mc[12], 1440, 1810, 480, 350)
-
-    -- 13 MCs
-    elseif count == 13 then
-
-        place(mc[1],  0,    1110, 480, 263)
-        place(mc[2],  480,  1110, 480, 263)
-        place(mc[3],  960,  1110, 480, 263)
-        place(mc[4],  1440, 1110, 480, 263)
-
-        place(mc[5],  0,    1373, 480, 262)
-        place(mc[6],  480,  1373, 480, 262)
-        place(mc[7],  960,  1373, 480, 262)
-        place(mc[8],  1440, 1373, 480, 262)
-
-        place(mc[9],  0,    1635, 480, 263)
-        place(mc[10], 480,  1635, 480, 263)
-        place(mc[11], 960,  1635, 480, 263)
-        place(mc[12], 1440, 1635, 480, 263)
-
-        place(mc[13], 0,    1898, 480, 262)
-
-    -- 14 MCs
-    elseif count == 14 then
-
-        place(mc[1],  0,    1110, 480, 263)
-        place(mc[2],  480,  1110, 480, 263)
-        place(mc[3],  960,  1110, 480, 263)
-        place(mc[4],  1440, 1110, 480, 263)
-
-        place(mc[5],  0,    1373, 480, 262)
-        place(mc[6],  480,  1373, 480, 262)
-        place(mc[7],  960,  1373, 480, 262)
-        place(mc[8],  1440, 1373, 480, 262)
-
-        place(mc[9],  0,    1635, 480, 263)
-        place(mc[10], 480,  1635, 480, 263)
-        place(mc[11], 960,  1635, 480, 263)
-        place(mc[12], 1440, 1635, 480, 263)
-
-        place(mc[13], 0,    1898, 480, 262)
-        place(mc[14], 480,  1898, 480, 262)
-
-    -- 15 MCs
-    elseif count == 15 then
-
-        place(mc[1],  0,    1110, 480, 263)
-        place(mc[2],  480,  1110, 480, 263)
-        place(mc[3],  960,  1110, 480, 263)
-        place(mc[4],  1440, 1110, 480, 263)
-
-        place(mc[5],  0,    1373, 480, 262)
-        place(mc[6],  480,  1373, 480, 262)
-        place(mc[7],  960,  1373, 480, 262)
-        place(mc[8],  1440, 1373, 480, 262)
-
-        place(mc[9],  0,    1635, 480, 263)
-        place(mc[10], 480,  1635, 480, 263)
-        place(mc[11], 960,  1635, 480, 263)
-        place(mc[12], 1440, 1635, 480, 263)
-
-        place(mc[13], 0,    1898, 480, 262)
-        place(mc[14], 480,  1898, 480, 262)
-        place(mc[15], 960,  1898, 480, 262)
-
-    -- 16 MCs
-    elseif count == 16 then
-
-        place(mc[1],  0,    1110, 480, 263)
-        place(mc[2],  480,  1110, 480, 263)
-        place(mc[3],  960,  1110, 480, 263)
-        place(mc[4],  1440, 1110, 480, 263)
-
-        place(mc[5],  0,    1373, 480, 262)
-        place(mc[6],  480,  1373, 480, 262)
-        place(mc[7],  960,  1373, 480, 262)
-        place(mc[8],  1440, 1373, 480, 262)
-
-        place(mc[9],  0,    1635, 480, 263)
-        place(mc[10], 480,  1635, 480, 263)
-        place(mc[11], 960,  1635, 480, 263)
-        place(mc[12], 1440, 1635, 480, 263)
-
-        place(mc[13], 0,    1898, 480, 262)
-        place(mc[14], 480,  1898, 480, 262)
-        place(mc[15], 960,  1898, 480, 262)
-        place(mc[16], 1440, 1898, 480, 262)
+            place(
+                w,
+                x1,
+                y1,
+                width,
+                height
+            )
+        end
     end
-end
 
     hl.on("window.open", function(w)
         if is_minecraft(w) then
@@ -309,11 +150,11 @@ end
         end
     end)
 
-hl.on("window.destroy", function(w)
-    if is_minecraft(w) then
-        arrange_minecraft()
-    end
-end)
+    hl.on("window.destroy", function(w)
+        if is_minecraft(w) then
+            arrange_minecraft()
+        end
+    end)
 
 end
 
