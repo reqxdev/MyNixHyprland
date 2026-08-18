@@ -5,10 +5,16 @@ function M.setup(hl)
     local MC_WORKSPACE = "1"
 
     local function is_minecraft(w)
-        return w
-            and w.class
-            and w.class:match("^Minecraft")
-    end
+    return w
+        and w.class
+        and (
+            w.class:match("^Minecraft")
+            or w.class:match("^Polar")
+	    or w.class:match("^Taunahi")
+	    or w.class:match("^Thalassa")
+	    or w.class:match("^Triton")
+        )
+end
 
     local function get_columns(count)
         if count == 1 then

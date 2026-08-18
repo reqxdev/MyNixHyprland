@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup(hl)
 
-    -- Dedicated Minecraft workspace
+    -- Dedicated Minecraft / Polar Client workspace
     hl.workspace_rule({
         workspace = "1",
         monitor = "DP-2",
@@ -19,16 +19,15 @@ function M.setup(hl)
         no_rounding = true,
     })
 
-    -- Optional default workspace for DP-2
+    -- General workspace on DP-2
     hl.workspace_rule({
         workspace = "2",
         monitor = "DP-2",
-        default = true,
         persistent = true,
         layout = "dwindle",
     })
 
-     -- Optional default workspace for vertical DP-3
+    -- Vertical monitor workspace on DP-3
     hl.workspace_rule({
         workspace = "3",
         monitor = "DP-3",

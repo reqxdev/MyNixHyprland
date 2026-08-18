@@ -33,9 +33,22 @@ function M.setup(hl)
     )
 
     hl.bind(
-        mainMod .. " + F",
+	mainMod .. " + ALT + C",
+	hl.dsp.exec_cmd(
+	    terminal .. " --class cava --title CAVA -e cava"
+        )
+    )
+     
+    hl.bind(
+        mainMod .. " + ALT  + F",
         hl.dsp.exec_cmd(terminal .. " -e " .. fileManager)
     )
+
+    hl.bind(
+        mainMod .. " + F",
+        hl.dsp.exec_cmd("dolphin")
+    )
+
 
     hl.bind(
         mainMod .. " + SPACE",
